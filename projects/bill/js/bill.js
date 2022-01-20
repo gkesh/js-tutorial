@@ -1,27 +1,42 @@
 "use strict";
 
 let serial = 0;
+const items = document.getElementById("items");
+
+HTMLElement.prototype.appendElementWithData = function(type, text, data = null) {
+    const element = document.createElement(type);
+    element.innerText = text;
+
+    if (data) {
+        element.dataset.attr = data;
+    }
+
+    this.append(element);
+};
 
 const addRow = (item, price) => {
-    const items = document.getElementById("items");
+    ++serial;
 
     const row = document.createElement("tr");
-    const serialData = document.createElement("td");
-    const itemData = document.createElement("td");
-    const priceData = document.createElement("td");
-
-    serial = serial + 1;
-
-    serialData.innerText = serial;
-    itemData.innerText = item;
-    priceData.innerText = price;
-
-    row.append(serialData);
-    row.append(itemData);
-    row.append(priceData);
+    row.id = `item-${serial}`;
+    row.appendElementWithData("td", serial);
+    row.appendElementWithData("td", item);
+    row.appendElementWithData("button", "Delete", serial);
+    row.appendElementWithData("td", price);
 
     items.prepend(row);
 };
+
+const deleteRow = (serial) => {
+    const row = document.getElementById(`item-${serial}`);
+    
+    if (row) {
+        items.removeChild(row);
+        return row.lastChild.innerText;
+    } else {
+        return null;
+    }
+}
 
 const updateTotal = (price) => {
     const total = document.getElementById("total");
@@ -32,9 +47,10 @@ const updateTotal = (price) => {
 
     // Updating total field
     total.innerText = newTotal;
-}
+};
 
 export {
     addRow,
+    deleteRow,
     updateTotal
 };
