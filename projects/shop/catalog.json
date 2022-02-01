@@ -1,0 +1,37 @@
+[
+    {
+        "name": "Pants",
+        "category": "Apparel",
+        "tags": "Jeans, Skinny, Blue",
+        "price": 1500,
+        "available": false
+    },
+    {
+        "name": "LTT Hoodie",
+        "category": "Apparel",
+        "tags": "Windcheater, Black, Light",
+        "price": 2500,
+        "available": true
+    },
+    {
+        "name": "T-Shirt",
+        "category": "Apparel",
+        "tags": "Cotton, Anime",
+        "price": 800,
+        "available": true
+    },
+    {
+        "name": "Blender",
+        "category": "Appliance",
+        "tags": "Basic, 220W, 600ml",
+        "price": 5400,
+        "available": true
+    },
+    {
+        "name": "Flash Drive 64GB",
+        "category": "Computer Peripheral",
+        "tags": "drive, pen, storage, pc, 64gb",
+        "price": 3200,
+        "available": true
+    }
+]
